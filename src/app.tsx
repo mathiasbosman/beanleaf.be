@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routes } from "@models/config/navigation.config.tsx";
+import "./i18n.ts";
 
 const router = createBrowserRouter(routes);
 

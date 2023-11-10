@@ -33,6 +33,10 @@ export default defineConfig({
         find: "@pages",
         replacement: fileURLToPath(new URL("./src/pages", import.meta.url)),
       },
+      {
+        find: "@locales",
+        replacement: fileURLToPath(new URL("./src/locales", import.meta.url)),
+      },
     ],
   },
   server: {

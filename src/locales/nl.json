@@ -1,0 +1,22 @@
+{
+  "slogan.subtitle": "Hosting, Software ontwikkeling, netwerkinfrastructuur & IT-support",
+  "contact": {
+    "input.placeholder": "Stel hier uw vraag",
+    "submit.text": "Contacteer ons"
+  },
+  "footer.disclaimer": "Alle rechten voorbehouden",
+  "http": {
+    "404": {
+      "title": "niet gevonden",
+      "description": "De pagina werd niet gevonden!"
+    }
+  },
+  "vat.short": "BTW",
+  "languages": {
+    "en": "English",
+    "nl": "Nederlands"
+  },
+  "navigation": {
+    "to_homepage": "Keer terug naar de homepagina"
+  }
+}

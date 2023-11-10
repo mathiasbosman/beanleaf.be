@@ -2,19 +2,21 @@ import type { ReactElement } from "react";
 import { useState } from "react";
 import { sendEmail } from "@shared/utils.ts";
 import { CONTACT_EMAIL } from "@/constants.ts";
+import { useTranslation } from "react-i18next";
 
 export const Contact = (): ReactElement => {
   const [subject, setSubject] = useState("");
+  const { t } = useTranslation();
 
   return (
     <>
       <label htmlFor={"subject-input"} className={"sr-only"}>
-        Fill in your question subject
+        {t("contact.input.placeholder")}
       </label>
       <input
         type={"text"}
-        placeholder={"Fill in your question..."}
-        aria-label={"Fill in your question"}
+        placeholder={t("contact.input.placeholder") + "..."}
+        aria-label={t("contact.input.placeholder")}
         id={"subject-input"}
         onChange={(event) => {
           setSubject(event.target.value);
@@ -32,7 +34,7 @@ export const Contact = (): ReactElement => {
         onClick={() => {
           sendEmail(CONTACT_EMAIL, subject);
         }}>
-        Contact us
+        {t("contact.submit.text")}
       </button>
     </>
   );

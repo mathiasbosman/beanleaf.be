@@ -6,10 +6,8 @@ describe("<Footer/> component", () => {
     cy.get("footer").should("be.visible");
     cy.get("p")
       .should(
-        "have.html",
-        "©&nbsp;" +
-          new Date().getFullYear().toString() +
-          " Beanleaf. All&nbsp;rights&nbsp;reserved. BTW&nbsp;BE&nbsp;0737.612.645",
+        "contain.html",
+        "©&nbsp;" + new Date().getFullYear().toString() + " Beanleaf",
       )
       .should("have.css", "text-align", "center");
   });

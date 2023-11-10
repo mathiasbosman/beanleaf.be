@@ -2,8 +2,11 @@ import type { ReactElement } from "react";
 import { Contact } from "@components/contact.tsx";
 import Page from "@components/common/page.tsx";
 import ContentWrapper from "@components/common/content-wrapper.tsx";
+import { useTranslation } from "react-i18next";
 
 export const HomePage = (): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <Page>
       <h1 className={"sr-only"}>Beanleaf</h1>
@@ -38,8 +41,7 @@ export const HomePage = (): ReactElement => {
             - For all your bits and bytes -
           </p>
           <aside className={"mt-6 text-base text-zinc-600 dark:text-zinc-400"}>
-            Hosting, Software&nbsp;development, network&nbsp;engineering &amp;
-            IT-support
+            {t("slogan.subtitle")}
           </aside>
           <div className={"mt-6"}>
             <Contact />

@@ -23,6 +23,7 @@
       "@/*": ["./src/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
+      "@locales/*": ["./src/locales/*"],
       "@models/*": ["./src/models/*"],
       "@shared/*": ["./src/shared/*"],
       "@pages/*": ["./src/pages/*"]

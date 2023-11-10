@@ -1,8 +1,11 @@
 import Page from "@components/common/page.tsx";
 import ContentWrapper from "@components/common/content-wrapper.tsx";
 import type { ReactElement } from "react";
+import { useTranslation } from "react-i18next";
 
 export const ErrorPage = (): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <Page title={"404 - Beanleaf"}>
       <ContentWrapper>
@@ -12,13 +15,13 @@ export const ErrorPage = (): ReactElement => {
               className={
                 "mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
               }>
-              404 - not found
+              404 - {t("http.404.title")}
             </h1>
             <p className={"mt-6 text-base text-zinc-500 dark:text-zinc-400"}>
-              This is not the page you are looking for!
+              {t("http.404.description")}
               <br />
               <a className={"underline hover:text-lime-500"} href={"/"}>
-                Return to the homepage
+                {t("navigation.to_homepage")}
               </a>
             </p>
           </div>
