@@ -15,8 +15,11 @@ export const ErrorPage = (): ReactElement => {
               404 - not found
             </h1>
             <p className={"mt-6 text-base text-zinc-500 dark:text-zinc-400"}>
-              This is not the page you are looking for!<br/>
-                <a className={"underline hover:text-lime-500"} href={"/"}>Return to the homepage</a>
+              This is not the page you are looking for!
+              <br />
+              <a className={"underline hover:text-lime-500"} href={"/"}>
+                Return to the homepage
+              </a>
             </p>
           </div>
         </div>

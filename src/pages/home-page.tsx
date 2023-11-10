@@ -15,7 +15,7 @@ export const HomePage = (): ReactElement => {
           <div
             className={"flex justify-center text-5xl font-bold text-[#333333]"}>
             <svg
-                aria-label={"B"}
+              aria-label={"B"}
               version="1.0"
               className={"h-11"}
               viewBox="0 0 194 311"
