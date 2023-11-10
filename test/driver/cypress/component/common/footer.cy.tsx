@@ -7,9 +7,7 @@ describe("<Footer/> component", () => {
     cy.get("p")
       .should(
         "contain.html",
-        "©&nbsp;" +
-          new Date().getFullYear().toString() +
-          " Beanleaf",
+        "©&nbsp;" + new Date().getFullYear().toString() + " Beanleaf",
       )
       .should("have.css", "text-align", "center");
   });
