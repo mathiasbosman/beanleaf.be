@@ -1,9 +1,10 @@
-import type { PropsWithChildren, ReactElement } from "react";
+import type {PropsWithChildren, ReactElement} from "react";
 import i18n from "i18next";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 
 interface Props {
   langs: string[];
+  defaultLang?: string;
 }
 
 export const LanguageSwitch = (
@@ -14,11 +15,18 @@ export const LanguageSwitch = (
   };
 
   const { t } = useTranslation();
+  const resolvedLanguage = i18n.resolvedLanguage;
 
   return (
     <div className={"flex justify-center gap-2"}>
       {props.langs
-        .filter((lang) => lang != i18n.language)
+        .filter((lang) => {
+          if (!resolvedLanguage && lang != props.defaultLang) {
+            return true;
+          }
+
+          return lang != resolvedLanguage;
+        })
         .map((lang, i) => {
           return (
             <button

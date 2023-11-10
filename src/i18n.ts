@@ -5,6 +5,9 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import localeEN from "@locales/en.json";
 import localeNL from "@locales/nl.json";
 
+export const languages = ["nl", "en"];
+export const defaultLang = "nl";
+
 const resources = {
   en: {
     translation: localeEN,
@@ -16,5 +19,5 @@ const resources = {
 
 i18n.use(initReactI18next).use(LanguageDetector).init({
   resources,
-  fallbackLng: "nl",
+  fallbackLng: defaultLang,
 });

@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitch } from "@components/languageSwitch.tsx";
+import { defaultLang, languages } from "@/i18n.ts";
 
 export const Footer = (): ReactElement => {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ export const Footer = (): ReactElement => {
                 className={
                   "text-balance mt-1 text-center text-sm text-zinc-500"
                 }>
-                <LanguageSwitch langs={["nl", "en"]} />
+                <LanguageSwitch langs={languages} defaultLang={defaultLang} />
               </p>
             </div>
           </div>
