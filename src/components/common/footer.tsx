@@ -12,10 +12,18 @@ export const Footer = (): ReactElement => {
         <div className="">
           <div className={"relative px-16 pb-16 pt-10"}>
             <div className={"mx-auto max-w-2xl lg:max-w-5xl"}>
-              <p className={"text-balance text-center text-sm text-zinc-500"}>
+              <p
+                className={
+                  "text-balance flex flex-wrap justify-center gap-1 text-center text-sm text-zinc-500"
+                }>
                 ©&nbsp;{new Date().getFullYear()} Beanleaf.{" "}
-                {t("footer.disclaimer")}. {t("vat.short")}
-                &nbsp;BE&nbsp;0737.612.645
+                <span className={"whitespace-nowrap"}>
+                  {t("footer.disclaimer")}.
+                </span>
+                <span className={"whitespace-nowrap"}>
+                  {t("vat.short")}
+                  &nbsp;BE&nbsp;0737.612.645
+                </span>
               </p>
               <p
                 className={
