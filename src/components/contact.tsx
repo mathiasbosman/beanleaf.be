@@ -9,7 +9,7 @@ export const Contact = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <section className={"flex flex-wrap justify-center gap-4"}>
       <label htmlFor={"subject-input"} className={"sr-only"}>
         {t("contact.input.placeholder")}
       </label>
@@ -29,13 +29,13 @@ export const Contact = (): ReactElement => {
       />
       <button
         className={
-          "active:text-white-100/70 dark:active:text-white-100/70 ml-4 gap-2 rounded-md bg-lime-800 px-3 py-4 text-sm font-semibold text-white outline-offset-2 transition hover:bg-lime-700 active:bg-lime-900 active:transition-none dark:bg-lime-600 dark:hover:bg-lime-500 dark:active:bg-lime-600"
+          "active:text-white-100/70 dark:active:text-white-100/70 flex-1 gap-2 rounded-md bg-lime-800 px-3 py-4 text-sm font-semibold text-white outline-offset-2 transition hover:bg-lime-700 active:bg-lime-900 active:transition-none dark:bg-lime-600 dark:hover:bg-lime-500 dark:active:bg-lime-600"
         }
         onClick={() => {
           sendEmail(CONTACT_EMAIL, subject);
         }}>
         {t("contact.submit.text")}
       </button>
-    </>
+    </section>
   );
 };
