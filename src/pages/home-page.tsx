@@ -13,7 +13,9 @@ export const HomePage = (): ReactElement => {
             "relative px-2 text-center sm:mt-3 sm:px-8 md:mt-20 lg:px-12"
           }>
           <div
-            className={"flex justify-center text-5xl font-bold text-[#333333]"}>
+            className={
+              "flex justify-center text-5xl font-bold text-[#333333] dark:text-white"
+            }>
             <svg
               aria-label={"B"}
               version="1.0"
