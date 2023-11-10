@@ -1,0 +1,12 @@
+User-Agent: *
+Allow: /assets/og_image.webp
+Disallow: /*.webp$
+Disallow: /*.png$
+
+User-agent: Twitterbot
+Allow: /assets
+
+User-agent: facebookexternalhit
+Allow: /assets
+
+Sitemap: http://beanleaf.be/sitemap.xml

@@ -1,0 +1,75 @@
+name: Testing
+on: pull_request
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-tests:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run unit tests
+        run: npm run test:unit
+  component-tests:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run component tests
+        run: npm run test:component
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Run build
+        run: npm run build
+      - uses: actions/upload-artifact@v3
+        name: Upload build folder
+        with:
+          name: npm-build
+          path: ./dist/
+          retention-days: 1
+  e2e:
+    needs: build
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        browser: ["firefox", "chrome", "electron"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Download build
+        uses: actions/download-artifact@v3
+        with:
+          name: npm-build
+          path: ./dist/
+      - name: E2E - ${{ matrix.browser }}
+        uses: cypress-io/github-action@v6
+        with:
+          project: "./test/driver/cypress"
+          browser: ${{ matrix.browser }}
+          start: npm run preview:local
+          wait-on: "http://localhost:9000"
+          wait-on-timeout: 15
+          spec: "**/e2e/app/**/*"
+      - uses: actions/upload-artifact@v3
+        name: Upload screenshots
+        with:
+          name: e2e-${{matrix.browser}}-screenshots
+          path: ./test/driver/cypress/screenshots/
