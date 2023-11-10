@@ -1,0 +1,18 @@
+{
+  "slogan.subtitle": "Hosting, Software development, network engineering & IT-support",
+  "contact": {
+    "input.placeholder": "Fill in your question",
+    "submit.text": "Contact us"
+  },
+  "footer.disclaimer": "All rights reserved",
+  "http": {
+    "404": {
+      "title": "not found",
+      "description": "This is not the page you are looking for!"
+    }
+  },
+  "vat.short": "VAT",
+  "navigation": {
+    "to_homepage": "Return to the homepage"
+  }
+}
