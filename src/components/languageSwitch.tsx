@@ -10,33 +10,31 @@ interface Props {
 export const LanguageSwitch = (
   props: PropsWithChildren<Props>,
 ): ReactElement => {
-  const changeLanguage = (lng: string) => {
-    void i18n.changeLanguage(lng);
+  const changeLanguage = (language: string): void => {
+    void i18n.changeLanguage(language);
   };
 
   const { t } = useTranslation();
   const resolvedLanguage = i18n.resolvedLanguage;
 
   return (
-    <div className={"flex justify-center gap-2"}>
+    <div className="{flex gap-2} justify-center">
       {props.langs
         .filter((lang) => {
-          if (!resolvedLanguage && lang != props.defaultLang) {
+          if (!resolvedLanguage && lang !== props.defaultLang) {
             return true;
           }
 
-          return lang != resolvedLanguage;
+          return lang !== resolvedLanguage;
         })
-        .map((lang, i) => {
-          return (
-            <button
-              key={i}
-              className={"hover:underline"}
-              onClick={() => changeLanguage(lang)}>
-              {t("languages." + lang)}
-            </button>
-          );
-        })}
+        .map((lang, i) => (
+          <button
+            key={i}
+            className="hover:underline"
+            onClick={() => changeLanguage(lang)}>
+            {t("languages." + lang)}
+          </button>
+        ))}
     </div>
   );
 };
